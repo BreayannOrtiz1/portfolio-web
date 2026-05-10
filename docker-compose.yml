@@ -1,0 +1,27 @@
+services:
+  portfolio:
+    build: .
+    container_name: mi_portfolio_web
+    ports:
+      - "8080:80"
+    restart: always
+    networks:
+      - portfolio_network
+
+  nginx-proxy:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx-proxy-manager
+    restart: always
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+    networks:
+      - portfolio_network
+
+networks:
+  portfolio_network:
+    driver: bridge
