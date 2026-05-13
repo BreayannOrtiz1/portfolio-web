@@ -1,68 +1,70 @@
-# Astro Starter Kit: Blog
+# Personal Portfolio & Blog Website
 
-```sh
-npm create astro@latest -- --template blog
+A modern, performant portfolio and blog website built with Astro, featuring Docker deployment and production-ready configuration.
+
+## 📋 Project Overview
+
+This is a fully-featured personal website that combines portfolio presentation with blog functionality. Built with Astro for optimal performance, it scores 100/100 on Lighthouse metrics while providing a clean, responsive design.
+
+## ✨ Key Features
+
+- **High Performance**: Astro-based architecture for optimal loading speeds
+- **Content Management**: Markdown/MDX support for easy blog post creation
+- **SEO Optimized**: Built-in sitemap, RSS feed, and Open Graph support
+- **Responsive Design**: Mobile-friendly layout with custom components
+- **Production Ready**: Docker containerization with Nginx reverse proxy
+- **Social Integration**: Links to Mastodon, Twitter/X, and GitHub
+- **TypeScript Support**: Full type safety throughout the codebase
+
+## 🏗️ Technology Stack
+
+- **Framework**: Astro with MDX integration
+- **Styling**: Custom CSS with CSS variables
+- **Deployment**: Docker multi-stage builds + Nginx
+- **Fonts**: Custom Atkinson font with variable weights
+- **Content**: Astro Content Collections for blog posts
+
+## 🚀 Quick Start
+
+### Development
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Production with Docker
+```bash
+# Local testing
+docker-compose -f docker-compose.local.yml up --build
 
-Features:
+# Full deployment (with Nginx Proxy Manager)
+docker-compose up --build
+```
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## 📁 Project Structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
+```
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── components/     # Reusable UI components (Header, Footer, etc.)
+│   ├── content/        # Blog posts in Markdown/MDX format
+│   ├── layouts/        # Page layout templates
+│   ├── pages/          # Route definitions
+│   └── styles/         # Global CSS styles
+├── public/             # Static assets
+├── data/               # Nginx proxy and log data
+└── docker/             # Deployment configuration
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🔧 Deployment
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+The project includes two Docker Compose configurations:
+- `docker-compose.local.yml`: For local testing on port 3000
+- `docker-compose.yml`: Full production setup with Nginx Proxy Manager
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## 📄 License
 
-Any static assets, like images, can be placed in the `public/` directory.
+This project is based on the Astro Blog Starter Kit, which itself is inspired by [Bear Blog](https://github.com/HermanMartinus/bearblog/).
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
-
-![config](src/assets/ngixnConfig.png)
-
-
-![config](src/assets/routeConfig.png)
+> **Note**: This is a production-ready template that can be customized for personal or professional use. Replace placeholder content with your own information and adjust styling to match your brand.
