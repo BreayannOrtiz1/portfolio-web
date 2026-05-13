@@ -41,6 +41,28 @@ docker-compose -f docker-compose.local.yml up --build
 docker-compose up --build
 ```
 
+## 🎨 Portfolio Builder Skill
+
+We've included a portfolio builder skill that asks questions and generates a complete, modern portfolio website:
+
+```bash
+# First, install the required dependencies
+npm install inquirer fs-extra
+
+# Run the portfolio builder
+node portfolio-builder.js
+```
+
+The builder will ask you questions about:
+- Site title and description
+- Your personal information
+- Social media profiles
+- Theme selection
+- Sections to include
+- Deployment options
+
+Then it will generate a complete Astro-based portfolio website with all necessary files.
+
 ## 📁 Project Structure
 
 ```
