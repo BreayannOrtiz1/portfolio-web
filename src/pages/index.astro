@@ -1,49 +1,126 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import ExperienceTimeline from '../components/experience/ExperienceTimeline.astro';
+import Hero from '../components/home/Hero.astro';
+import SkillsGrid from '../components/home/SkillsGrid.astro';
+import ProjectCard from '../components/projects/ProjectCard.astro';
+import Button from '../components/ui/Button.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import { AUTHOR, SITE, SOCIAL, UI } from '../config';
+
+// Fetch content
+const allProjects = await getCollection('projects');
+const featuredProjects = allProjects
+  .filter((p) => p.data.featured)
+  .sort((a, b) => b.data.year - a.data.year);
+
+const allExperience = await getCollection('experience');
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE.title} description={SITE.description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+
+      <!-- ── HERO ──────────────────────────────────── -->
+      <Hero />
+
+      <!-- ── FEATURED PROJECTS ──────────────────── -->
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="flex items-end justify-between mb-12">
+            <SectionHeading
+              title="Selected Work"
+              subtitle={UI.projectsSectionTitle}
+            />
+            <Button href="/projects" variant="ghost" size="sm">
+              All projects
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </Button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredProjects.map((project) => (
+              <ProjectCard project={project} featured />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SKILLS ────────────────────────────── -->
+      <SkillsGrid />
+
+      <!-- ── EXPERIENCE (compact) ──────────────── -->
+      <section class="section" id="experience">
+        <div class="container">
+          <div class="flex items-end justify-between mb-12">
+            <SectionHeading
+              title="Career"
+              subtitle={UI.experienceSectionTitle}
+            />
+            <Button href="/experience" variant="ghost" size="sm">
+              Full timeline
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </Button>
+          </div>
+
+          <div class="max-w-2xl">
+            <ExperienceTimeline entries={allExperience} compact />
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CONTACT ───────────────────────────── -->
+      <section class="section bg-[var(--color-bg-secondary)]" id="contact">
+        <div class="container">
+          <div class="max-w-2xl">
+            <SectionHeading title="Contact" subtitle={UI.contactSectionTitle} />
+            <p class="text-[var(--color-text-secondary)] text-lg leading-relaxed mb-8">
+              {UI.contactBody}
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <Button href={SOCIAL.email} variant="secondary" size="lg">
+                Send an email
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </Button>
+              <Button href={SOCIAL.linkedin} variant="secondary" size="lg" external>
+                LinkedIn Profile
+              </Button>
+            </div>
+
+            <!-- Contact details -->
+            <div class="mt-10 flex flex-col gap-2">
+              <div class="flex items-center gap-3 text-sm text-[var(--color-text-secondary)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-accent)]">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                {AUTHOR.location}
+              </div>
+              <div class="flex items-center gap-3 text-sm text-[var(--color-text-secondary)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-accent)]">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.76h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                {AUTHOR.phone}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <Footer />
+  </body>
 </html>

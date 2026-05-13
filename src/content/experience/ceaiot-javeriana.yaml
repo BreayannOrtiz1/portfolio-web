@@ -1,0 +1,30 @@
+company: "CEA-IoT · Pontificia Universidad Javeriana"
+role: "IoT Development Engineer"
+type: "full-time"
+startDate: "2022-02-01"
+current: true
+location: "Bogotá D.C. · Antioquia · Villavicencio"
+description: >
+  Led end-to-end IoT solution development at the Center of Excellence in IoT (CEA-IoT),
+  Pontificia Universidad Javeriana. Designed, deployed, and maintained full-stack IoT
+  systems for industry clients across energy, agriculture, and environmental sectors.
+  Managed hardware design, firmware development, cloud integration, and field deployments.
+achievements:
+  - "Deployed and maintained 61 river-level monitoring stations for CORNARE (Oriente Antioqueño), enabling real-time flood prediction that protected at-risk communities."
+  - "Delivered physiological monitoring system for ECOPETROL control rooms, correlating biometric data to estimate worker fatigue in production environments."
+  - "Integrated 50 cold-room sensor nodes for AGROSAVIA, digitizing genetic material monitoring across Bogotá and Funza facilities."
+  - "Built resilient field-deployable IoT prototypes capable of data collection under harsh environmental conditions."
+  - "Managed the full IoT chain: PCB design → firmware → LoRaWAN gateway → cloud pipeline → Grafana dashboards."
+technologies:
+  - "C / Embedded C"
+  - "MicroPython"
+  - "LoRaWAN"
+  - "MQTT"
+  - "Azure"
+  - "Grafana"
+  - "InfluxDB"
+  - "Node-RED"
+  - "KiCAD"
+  - "ESP32"
+  - "GPS"
+order: 1

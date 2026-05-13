@@ -1,0 +1,28 @@
+company: "CORNARE"
+role: "IoT Field Engineer — Early Warning System"
+type: "contract"
+startDate: "2023-01-01"
+endDate: "2024-06-01"
+current: false
+location: "Oriente Antioqueño, Colombia"
+description: >
+  Deployed and commissioned a network of 61 river-level monitoring stations
+  across Oriente Antioqueño for CORNARE (Regional Autonomous Corporation). The system
+  provided real-time upstream water-level data used to predict imminent flooding
+  events and trigger early warnings to at-risk communities.
+achievements:
+  - "Deployed 61 monitoring stations across challenging rural terrain in Oriente Antioqueño."
+  - "Implemented upstream data analysis that successfully predicted imminent flood events, protecting vulnerable populations."
+  - "Configured LoRaWAN network infrastructure including gateways and TTN/private server integration."
+  - "Calibrated water-level sensors and GPS coordinates for accurate geospatial data mapping."
+  - "Trained local operators on system monitoring and basic maintenance procedures."
+technologies:
+  - "LoRaWAN"
+  - "GPS / GNSS"
+  - "Ultrasonic Water-Level Sensors"
+  - "MicroPython"
+  - "Node-RED"
+  - "InfluxDB"
+  - "Grafana"
+  - "KiCAD (enclosure PCBs)"
+order: 3

@@ -1,0 +1,32 @@
+title: "River Flood Early Warning Network"
+client: "CORNARE"
+description: >
+  Network of 61 river-level monitoring stations across Oriente Antioqueño enabling
+  real-time upstream data analysis to predict imminent floods and protect at-risk
+  communities.
+longDescription: >
+  Designed, deployed, and commissioned a large-scale LoRaWAN sensor network for CORNARE
+  across the mountainous terrain of Oriente Antioqueño. Each station integrates
+  ultrasonic water-level sensors, GPS modules, and solar-powered MCU nodes transmitting
+  over LoRaWAN to a centralized Node-RED pipeline. Upstream data analysis enables
+  prediction of downstream flooding events with sufficient lead time for community
+  evacuation alerts. The system has demonstrated real-world effectiveness in predicting
+  imminent flood events during high-rainfall seasons.
+tags:
+  - "LoRaWAN"
+  - "GPS"
+  - "Node-RED"
+  - "InfluxDB"
+  - "Grafana"
+  - "MicroPython"
+  - "Environmental Monitoring"
+  - "Disaster Prevention"
+year: 2024
+featured: true
+metrics:
+  - value: "61"
+    label: "Deployed stations"
+  - value: "Real-time"
+    label: "Flood prediction"
+  - value: "Oriente Antioqueño"
+    label: "Coverage area"

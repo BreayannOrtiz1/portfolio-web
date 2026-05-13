@@ -1,0 +1,28 @@
+company: "AGROSAVIA"
+role: "IoT Systems Engineer — Cold Room Monitoring"
+type: "contract"
+startDate: "2023-09-01"
+endDate: "2024-12-01"
+current: false
+location: "Bogotá D.C. · Funza, Colombia"
+description: >
+  Designed and deployed a 50-node sensor network to monitor environmental
+  variables inside genetic material cold rooms at AGROSAVIA (Colombian Corporation
+  for Agricultural Research). The system digitized manual monitoring processes and
+  implemented automated alerts for critical threshold breaches.
+achievements:
+  - "Deployed 50 wireless sensor nodes across Bogotá and Funza cold-room facilities."
+  - "Automated genetic material monitoring, replacing manual logging with real-time digital dashboards."
+  - "Configured alert systems for temperature and humidity threshold violations, ensuring preservation of critical biological samples."
+  - "Integrated sensor data with cloud storage, enabling historical trend analysis and compliance reporting."
+  - "Performed hardware commissioning, calibration, and firmware updates across all deployed nodes."
+technologies:
+  - "C / Embedded C"
+  - "Temperature & Humidity Sensors (SHT series)"
+  - "LoRaWAN"
+  - "MQTT"
+  - "Azure IoT"
+  - "InfluxDB"
+  - "Grafana"
+  - "Node-RED"
+order: 4

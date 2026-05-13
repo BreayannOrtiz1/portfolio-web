@@ -1,0 +1,33 @@
+title: "Cold Room Genetic Material Monitor"
+client: "AGROSAVIA"
+description: >
+  50-node wireless sensor network for monitoring environmental conditions in genetic
+  material cold rooms, replacing manual logging with real-time digital dashboards
+  and automated critical alerts.
+longDescription: >
+  Deployed a mesh of 50 wireless IoT nodes across AGROSAVIA cold-room facilities in
+  Bogotá and Funza, each measuring temperature and relative humidity continuously.
+  The system replaced error-prone manual logging with an automated pipeline: sensor
+  nodes transmit via LoRaWAN to an MQTT broker, data flows through Node-RED into
+  InfluxDB, and Grafana dashboards provide real-time visibility and historical trend
+  analysis. Automated alerts notify personnel immediately on threshold violations,
+  safeguarding irreplaceable genetic material samples critical to Colombian agricultural
+  research.
+tags:
+  - "LoRaWAN"
+  - "MQTT"
+  - "Node-RED"
+  - "InfluxDB"
+  - "Grafana"
+  - "Azure"
+  - "C"
+  - "Agriculture"
+year: 2024
+featured: true
+metrics:
+  - value: "50"
+    label: "Sensor nodes deployed"
+  - value: "24/7"
+    label: "Continuous monitoring"
+  - value: "Automated"
+    label: "Alert system"

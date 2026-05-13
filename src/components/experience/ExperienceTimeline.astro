@@ -1,0 +1,92 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Tag from '../ui/Tag.astro';
+
+interface Props {
+  entries: CollectionEntry<'experience'>[];
+  compact?: boolean;
+}
+
+const { entries, compact = false } = Astro.props;
+
+// Sort by order field, then by startDate descending
+const sorted = [...entries].sort((a, b) => {
+  if (a.data.order !== b.data.order) return a.data.order - b.data.order;
+  return new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime();
+});
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+}
+---
+
+<div class="relative">
+  <!-- Vertical line -->
+  <div class="absolute left-[7px] top-2 bottom-2 w-px bg-[var(--color-border)]"></div>
+
+  <div class="space-y-10">
+    {sorted.map((entry, idx) => {
+      const { company, role, type, startDate, endDate, current, location, description, achievements, technologies } = entry.data;
+      const start = formatDate(new Date(startDate));
+      const end = current ? 'Present' : endDate ? formatDate(new Date(endDate)) : '';
+
+      return (
+        <div class="relative pl-8">
+          <!-- Timeline dot -->
+          <div class:list={[
+            'absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-[var(--color-bg-primary)]',
+            idx === 0 ? 'bg-[var(--color-accent)]' : 'bg-[var(--color-border-hover)]',
+          ]}></div>
+
+          <!-- Date range -->
+          <div class="font-mono text-xs text-[var(--color-text-secondary)] mb-2 uppercase tracking-wider">
+            {start} — {end}
+            {current && <span class="ml-2 inline-flex items-center gap-1 text-[var(--color-accent)]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-pulse"></span>
+              Current
+            </span>}
+          </div>
+
+          <!-- Company & Role -->
+          <div class="mb-1">
+            <h3 class="text-base font-bold text-[var(--color-text-primary)] m-0 leading-tight">
+              {role}
+            </h3>
+            <div class="flex flex-wrap items-center gap-2 mt-1">
+              <span class="text-sm font-medium text-[var(--color-accent)]">{company}</span>
+              <span class="text-[var(--color-border)]">·</span>
+              <span class="text-sm text-[var(--color-text-secondary)]">{location}</span>
+              <Tag label={type} variant="outline" size="sm" />
+            </div>
+          </div>
+
+          {!compact && (
+            <>
+              <!-- Description -->
+              <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed mt-3 mb-4">
+                {description}
+              </p>
+
+              <!-- Achievements -->
+              <ul class="space-y-2 mb-4">
+                {achievements.map((ach) => (
+                  <li class="flex gap-2 text-sm text-[var(--color-text-secondary)]">
+                    <span class="mt-1.5 w-1 h-1 rounded-full bg-[var(--color-accent)] shrink-0"></span>
+                    <span>{ach}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <!-- Technologies -->
+              <div class="flex flex-wrap gap-1.5">
+                {technologies.map((tech) => (
+                  <Tag label={tech} variant="default" size="sm" />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      );
+    })}
+  </div>
+</div>

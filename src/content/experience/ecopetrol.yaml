@@ -1,0 +1,26 @@
+company: "ECOPETROL"
+role: "IoT Systems Engineer — Occupational Safety Project"
+type: "contract"
+startDate: "2022-06-01"
+endDate: "2023-08-01"
+current: false
+location: "Bogotá D.C. (Operations Control Rooms)"
+description: >
+  Developed and validated a wearable IoT system to monitor physiological and
+  environmental variables in ECOPETROL's production control rooms. The system
+  aimed to estimate operator fatigue levels, contributing to occupational safety
+  programs in critical energy infrastructure.
+achievements:
+  - "Demonstrated technical feasibility of in-field physiological monitoring systems in industrial environments."
+  - "Correlated biometric data (heart rate, temperature, galvanic skin response) with environmental variables to build fatigue-estimation models."
+  - "Designed custom PCBs for wearable sensor nodes, optimizing form factor for operational use."
+  - "Delivered data pipelines from sensor nodes to cloud dashboards, providing real-time visibility to safety teams."
+technologies:
+  - "C / Embedded C"
+  - "Biometric Sensors (HR, GSR, Temp)"
+  - "Custom PCB Design (KiCAD)"
+  - "LoRaWAN / WiFi"
+  - "Azure IoT Hub"
+  - "Grafana"
+  - "Python"
+order: 2

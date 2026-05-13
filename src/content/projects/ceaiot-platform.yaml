@@ -1,0 +1,36 @@
+title: "End-to-End IoT Platform Development"
+client: "CEA-IoT · Javeriana"
+description: >
+  Research and development of reusable IoT architecture patterns covering the full
+  stack — from custom PCB design and firmware to cloud pipelines and data dashboards —
+  deployed across multiple industry verticals.
+longDescription: >
+  As IoT Development Engineer at CEA-IoT (Pontificia Universidad Javeriana), developed
+  and refined a modular IoT stack applicable across energy, agriculture, and environmental
+  sectors. The work encompassed hardware design (KiCAD schematics and PCB layouts),
+  embedded firmware in C and MicroPython, LoRaWAN and MQTT connectivity layers, cloud
+  integrations with Azure IoT Hub, and full observability through Grafana and InfluxDB.
+  This platform-level work enabled rapid deployment of production-grade solutions for
+  multiple clients with consistent reliability and field durability. Includes photovoltaic
+  system design for off-grid station power and cybersecurity fundamentals applied to
+  device authentication and data integrity.
+tags:
+  - "Full-Stack IoT"
+  - "PCB Design"
+  - "KiCAD"
+  - "LoRaWAN"
+  - "Azure IoT"
+  - "Grafana"
+  - "InfluxDB"
+  - "C"
+  - "MicroPython"
+  - "Solar Power"
+year: 2026
+featured: false
+metrics:
+  - value: "4+"
+    label: "Years of development"
+  - value: "3"
+    label: "Industry verticals"
+  - value: "End-to-End"
+    label: "Full IoT chain ownership"

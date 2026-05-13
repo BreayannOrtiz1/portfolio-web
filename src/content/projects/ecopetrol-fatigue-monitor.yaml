@@ -1,0 +1,31 @@
+title: "Worker Fatigue Monitoring System"
+client: "ECOPETROL"
+description: >
+  Wearable IoT system to capture and monitor physiological and environmental variables
+  in ECOPETROL's production control rooms, enabling fatigue estimation for operators
+  in critical energy infrastructure.
+longDescription: >
+  Designed and deployed a wearable sensor platform for occupational safety in ECOPETROL
+  control rooms. The system captures biometric data (heart rate, galvanic skin response,
+  skin temperature) and correlates it with environmental parameters (ambient temperature,
+  CO2, noise levels) to build real-time fatigue-estimation models. Custom PCBs were
+  designed for the wearable nodes, with data transmitted via LoRaWAN to an Azure IoT Hub
+  pipeline and visualized in Grafana dashboards accessible to safety supervisors.
+tags:
+  - "IoT"
+  - "Wearable Tech"
+  - "LoRaWAN"
+  - "PCB Design"
+  - "Azure"
+  - "Grafana"
+  - "C"
+  - "Occupational Safety"
+year: 2023
+featured: true
+metrics:
+  - value: "4+"
+    label: "Biometric variables tracked"
+  - value: "Real-time"
+    label: "Fatigue estimation"
+  - value: "Critical"
+    label: "Energy infrastructure"
